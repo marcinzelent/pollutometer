@@ -78,7 +78,6 @@
     <Folder Include="Content\" />
     <Folder Include="Models\" />
     <Folder Include="Scripts\" />
-    <Folder Include="Singletons\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controllers\HomeController.cs" />
@@ -89,7 +88,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\ReadingsController.cs" />
     <Compile Include="Models\Reading.cs" />
-    <Compile Include="Singletons\Singleton.cs" />
+    <Compile Include="SqlOperator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

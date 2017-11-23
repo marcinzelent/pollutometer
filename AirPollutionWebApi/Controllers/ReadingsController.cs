@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 using System.Web.Http;
-using System.Web.Mvc;
 using AirPollutionWebApi.Models;
 using AirPollutionWebApi.Singletons;
 
@@ -15,49 +11,49 @@ namespace AirPollutionWebApi.Controllers
 
 		public IEnumerable<Reading> GetAllReadings()
 		{
-            Singleton.Instance.GetData();
-			return Singleton.Instance.Readings;
+            var readings = SqlOperator.GetAllReadings();
+            return readings;
 		}
 
-		//public IHttpActionResult GetReading(int id)
-		//{
-  //          var customer = Singleton.Instance.Readings.FirstOrDefault((p) => p.TimeStamp == id);
-
-		//	if (customer != null) return Ok(customer);
-		//	else return NotFound();
-		//}
-
-		//public IHttpActionResult PutReading(int id, Reading customer)
-		//{
-		//	if (customer != null)
-		//	{
-		//		Singleton.Instance.PutData(id, customer);
-		//		return Ok();
-		//	}
-		//	else return BadRequest();
-		//}
-
-		public IHttpActionResult PostReading(Reading customer)
+		public IHttpActionResult GetReading(int id)
 		{
-			if (customer != null)
+            var reading = SqlOperator.GetReadingById(id);
+
+			if (reading != null) return Ok(reading);
+			else return NotFound();
+		}
+
+		public IHttpActionResult PutReading(int id, Reading reading)
+		{
+			if (reading != null)
 			{
-				Singleton.Instance.PostData(customer);
+				SqlOperator.PutReading(id, reading);
 				return Ok();
 			}
 			else return BadRequest();
 		}
 
-		//public IHttpActionResult DeleteReading(int id)
-		//{
-		//	Reading customer = Singleton.Instance.Readings.Find((p) => p.Id == id);
-		//	if (customer == null)
-		//	{
-		//		return NotFound();
-		//	}
+		public IHttpActionResult PostReading(Reading reading)
+		{
+			if (reading != null)
+			{
+                SqlOperator.PostReading(reading);
+				return Ok();
+			}
+			else return BadRequest();
+		}
 
-		//	Singleton.Instance.DeleteData(id);
+		public IHttpActionResult DeleteReading(int id)
+		{
+            Reading reading = SqlOperator.GetReadingById(id);
+			if (reading == null)
+			{
+				return NotFound();
+			}
 
-		//	return Ok(customer);
-		//}
+			SqlOperator.DeleteReading(id);
+
+			return Ok(reading);
+		}
     }
 }

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace AirPollutionWebApi.Models
+﻿namespace AirPollutionWebApi.Models
 {
     public class Reading
     {
