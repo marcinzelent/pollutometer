@@ -15,6 +15,7 @@ namespace AirPollutionWebApi.Controllers
 
 		public IEnumerable<Reading> GetAllReadings()
 		{
+            Singleton.Instance.GetData();
 			return Singleton.Instance.Readings;
 		}
 

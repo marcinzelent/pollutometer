@@ -8,14 +8,19 @@ namespace AirPollutionWebApi.Singletons
 	public class Singleton
 	{
 		static Singleton instance;
-		const string ConnectionString = "Server=tcp:forschool.database.windows.net,1433;Initial Catalog=schooldb;Persist Security Info=False;User ID=***REMOVED***;Password=***REMOVED***;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+		const string ConnectionString = "Server=tcp:forschool.database.windows.net,1433;" +
+            "Initial Catalog=schooldb;" +
+            "Persist Security Info=False;" +
+            "User ID=***REMOVED***;" +
+            "Password=***REMOVED***;" +
+            "MultipleActiveResultSets=False;" +
+            "Encrypt=True;" +
+            "TrustServerCertificate=False;" +
+            "Connection Timeout=30;";
 
 		public List<Reading> Readings = new List<Reading>();
 
-		Singleton()
-		{
-			GetData();
-		}
+		Singleton() {}
 
 		public static Singleton Instance
 		{
@@ -29,7 +34,7 @@ namespace AirPollutionWebApi.Singletons
 			}
 		}
 
-		void GetData()
+		public void GetData()
 		{
 			Readings = new List<Reading>();
 			using (SqlConnection databaseConnection = new SqlConnection(ConnectionString))
@@ -42,10 +47,11 @@ namespace AirPollutionWebApi.Singletons
 				{
 					Readings.Add(new Reading
 					{
-                        TimeStamp = reader.GetDateTime(0),
-						Co = reader.GetInt32(1),
-						No = reader.GetInt32(2),
-						So = reader.GetInt32(3)
+                        Id = reader.GetInt32(0),
+                        TimeStamp = reader.GetInt32(1),
+                        Co = reader.GetInt32(2),
+						No = reader.GetInt32(3),
+						So = reader.GetInt32(4)
 					});
 				}
 			}
