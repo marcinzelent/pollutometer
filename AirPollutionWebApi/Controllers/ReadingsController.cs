@@ -23,7 +23,7 @@ namespace AirPollutionWebApi.Controllers
 			else return NotFound();
 		}
 
-        [Route("/api/Readings/latest")]
+        [Route("api/Readings/latest")]
         public IHttpActionResult GetLatestReading()
         {
             var readings = SqlOperator.GetAllReadings();
