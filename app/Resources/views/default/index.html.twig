@@ -2,7 +2,6 @@
 
 {% block body %}
     <div id="wrapper">
-        A
         <table>
             <tr>
                 <th>TimeStamp</th>
@@ -10,7 +9,7 @@
                 <th>No</th>
                 <th>So</th>
             </tr>
-            <tr>
+            <tr id="latest">
                 <td>{{ TimeStamp }}</td>
                 <td>{{ Co }}</td>
                 <td>{{ No }}</td>
@@ -19,4 +18,6 @@
         </table>
     </div>
 {% endblock %}
-
+{% block javascripts %}
+    <script src="{{ asset('js/realtime.js') }}"></script>
+{% endblock %}
