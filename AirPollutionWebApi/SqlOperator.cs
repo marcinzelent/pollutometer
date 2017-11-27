@@ -33,9 +33,9 @@ namespace AirPollutionWebApi.Singletons
 					{
                         Id = reader.GetInt32(0),
                         TimeStamp = reader.GetInt32(1),
-                        Co = reader.GetDecimal(2),
-						No = reader.GetDecimal(3),
-						So = reader.GetDecimal(4)
+                        Co = reader.GetDouble(2),
+						No = reader.GetDouble(3),
+						So = reader.GetDouble(4)
 					});
 				}
 			}

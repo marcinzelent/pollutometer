@@ -4,8 +4,8 @@
     {
         public int Id { get; set; }
         public int TimeStamp { get; set; }
-        public decimal Co { get; set; }
-        public decimal No { get; set; }
-        public decimal So { get; set; }
+        public double Co { get; set; }
+        public double No { get; set; }
+        public double So { get; set; }
     }
 }
