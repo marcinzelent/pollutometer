@@ -30,7 +30,8 @@ namespace AirPollutionWebApi.Controllers
         [Route("api/Readings/latest")]
         public IHttpActionResult GetLatestReading()
         {
-            var command = "SELECT MAX(TimeStamp) FROM Readings";
+            var command = "SELECT * FROM Readings " +
+                "WHERE TimeStamp IN(SELECT MAX(TimeStamp) FROM Readings)";
             var reading = SqlOperator.GetReadings(command)[0];
 
 			if (reading != null) return Ok(reading);
