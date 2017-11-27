@@ -1,3 +1,14 @@
+function arrayMax(arr) {
+    var len = arr.length, max = -Infinity;
+    while (len--) {
+        if (arr[len] > max) {
+            max = arr[len];
+        }
+    }
+    return max;
+};
+
+
 const table = {
     Co: {
         breakpoints: [0, 4.4, 4.5, 9.4, 9.5, 12.4, 12.5, 15.4, 15.5, 30.4, 30.5, 40.4, 40.5, 50.4],
@@ -14,7 +25,7 @@ const table = {
 };
 
 
-var calculateAQI = function(gasName, concentration) {
+function calculateAQI(gasName, concentration) {
     var bpLow,bpHi;
     var bpLowIndex, bpHiIndex;
 
@@ -57,12 +68,16 @@ function update() {
             table[3].textContent = data.So;
 
             var indexes = [];
-            indexes.push(calculateAQI("Co", data.Co));
-            indexes.push(calcaulteAQI("No", data.No));
-            indexes.push(calculateAQI("So", data.So));
+            var CO = isNaN(calculateAQI("Co", data.Co)) ? 0 : calculateAQI("Co", data.Co);
+            var SO = isNaN(calculateAQI("So", data.So)) ? 0 : calculateAQI("So", data.So);
+            var NO = isNaN(calculateAQI("No", data.No)) ? 0 : calculateAQI("No", data.No);
+            indexes.push(CO);
+            indexes.push(NO);
+            indexes.push(SO);
 
-            var max = Math.max(...indexes);
-            console.log(max);
+            var max = arrayMax(indexes);
+
+            document.querySelector("#aq").innerHTML = `The current air quality index is <strong>${max}</strong>`;
 
         })
         .catch(function(error) {
@@ -74,7 +89,7 @@ function update() {
 
 }
 
-setInterval(update, 60000);
+setInterval(update, 10000);
 
 
 
