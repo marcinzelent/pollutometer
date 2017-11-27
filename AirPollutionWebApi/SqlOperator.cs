@@ -7,7 +7,8 @@ namespace AirPollutionWebApi.Singletons
 {
 	public static class SqlOperator
 	{
-		const string ConnectionString = "Server=tcp:forschool.database.windows.net,1433;" +
+		const string ConnectionString = 
+            "Server=tcp:forschool.database.windows.net,1433;" +
             "Initial Catalog=schooldb;" +
             "Persist Security Info=False;" +
             "User ID=***REMOVED***;" +
@@ -17,13 +18,12 @@ namespace AirPollutionWebApi.Singletons
             "TrustServerCertificate=False;" +
             "Connection Timeout=30;";
 
-        public static List<Reading> GetAllReadings()
+        public static List<Reading> GetReadings(string command)
 		{
 			var readings = new List<Reading>();
 
 			using (SqlConnection databaseConnection = new SqlConnection(ConnectionString))
 			{
-                string command = "SELECT * FROM Readings;";
 				databaseConnection.Open();
 				SqlCommand selectCommand = new SqlCommand(command, databaseConnection);
 				var reader = selectCommand.ExecuteReader();
@@ -41,32 +41,6 @@ namespace AirPollutionWebApi.Singletons
 			}
 
             return readings;
-		}
-
-        public static Reading GetReadingById(int id)
-		{
-            Reading reading = new Reading();
-
-			using (SqlConnection databaseConnection = new SqlConnection(ConnectionString))
-			{
-                string command = $"SELECT * FROM Readings WHERE Id={id};";
-				databaseConnection.Open();
-				SqlCommand selectCommand = new SqlCommand(command, databaseConnection);
-				var reader = selectCommand.ExecuteReader();
-				while (reader.Read())
-				{
-					reading = new Reading
-					{
-						Id = reader.GetInt32(0),
-						TimeStamp = reader.GetInt32(1),
-						Co = reader.GetInt32(2),
-						No = reader.GetInt32(3),
-						So = reader.GetInt32(4)
-					};
-				}
-			}
-
-            return reading;
 		}
 
         public static void PutReading(int id, Reading reading)

@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System;
 using System.Web.Http;
 using AirPollutionWebApi.Models;
 using AirPollutionWebApi.Singletons;
@@ -9,15 +9,19 @@ namespace AirPollutionWebApi.Controllers
     {
 		public ReadingsController() { }
 
-		public IEnumerable<Reading> GetAllReadings()
+		public IHttpActionResult GetAllReadings()
 		{
-            var readings = SqlOperator.GetAllReadings();
-            return readings;
+            var command = "SELECT * FROM Readings";
+            var readings = SqlOperator.GetReadings(command);
+
+            if (readings.Count > 0) return Ok(readings);
+            else return NotFound();
 		}
 
 		public IHttpActionResult GetReading(int id)
 		{
-            var reading = SqlOperator.GetReadingById(id);
+            var command = $"SELECT * FROM Readings WHERE Id={id}";
+            var reading = SqlOperator.GetReadings(command)[0];
 
 			if (reading != null) return Ok(reading);
 			else return NotFound();
@@ -26,19 +30,24 @@ namespace AirPollutionWebApi.Controllers
         [Route("api/Readings/latest")]
         public IHttpActionResult GetLatestReading()
         {
-            var readings = SqlOperator.GetAllReadings();
-            Reading latestReading = null;
+            var command = "SELECT MAX(TimeStamp) FROM Readings";
+            var reading = SqlOperator.GetReadings(command)[0];
 
-            foreach(var reading in readings)
-            {
-                if (latestReading == null) latestReading = reading;
-                if (reading.TimeStamp > latestReading.TimeStamp)
-                    latestReading = reading;
-            }
-
-			if (latestReading != null) return Ok(latestReading);
+			if (reading != null) return Ok(reading);
 			else return NotFound();
         }
+
+        [Route("api/Readings/lastweek")]
+		public IHttpActionResult GetReadingsFromLastWeek()
+		{
+            var timeNow = DateTimeOffset.Now.ToUnixTimeSeconds();
+            var command = "SELECT * FROM Readings " +
+                $"WHERE TimeStamp BETWEEN {timeNow-7*24*3600} AND {timeNow}";
+			var readings = SqlOperator.GetReadings(command);
+
+			if (readings.Count > 0) return Ok(readings);
+			else return NotFound();
+		}
 
 		public IHttpActionResult PutReading(int id, Reading reading)
 		{
@@ -62,7 +71,9 @@ namespace AirPollutionWebApi.Controllers
 
 		public IHttpActionResult DeleteReading(int id)
 		{
-            Reading reading = SqlOperator.GetReadingById(id);
+            var command = $"SELECT * FROM Readings WHERE Id={id}";
+
+            Reading reading = SqlOperator.GetReadings(command)[0];
 			if (reading == null)
 			{
 				return NotFound();
