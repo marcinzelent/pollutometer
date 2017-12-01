@@ -6,8 +6,8 @@
     <ProjectGuid>{22C32F4C-0DEB-40EA-9D56-48942CBB2A07}</ProjectGuid>
     <ProjectTypeGuids>{349C5851-65DF-11DA-9384-00065B846F21};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
-    <RootNamespace>AirPollutionWebApi</RootNamespace>
-    <AssemblyName>AirPollutionWebApi</AssemblyName>
+    <RootNamespace>PollutometerWebApi</RootNamespace>
+    <AssemblyName>PollutometerWebApi</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

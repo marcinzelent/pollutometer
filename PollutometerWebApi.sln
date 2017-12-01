@@ -1,7 +1,7 @@
 
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AirPollutionWebApi", "AirPollutionWebApi\AirPollutionWebApi.csproj", "{22C32F4C-0DEB-40EA-9D56-48942CBB2A07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PollutometerWebApi", "PollutometerWebApi\PollutometerWebApi.csproj", "{22C32F4C-0DEB-40EA-9D56-48942CBB2A07}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

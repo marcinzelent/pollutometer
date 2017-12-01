@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Http;
-using AirPollutionWebApi.Models;
-using AirPollutionWebApi.Singletons;
+using PollutometerWebApi.Models;
+using PollutometerWebApi.Singletons;
 
-namespace AirPollutionWebApi.Controllers
+namespace PollutometerWebApi.Controllers
 {
     public class ReadingsController : ApiController
     {

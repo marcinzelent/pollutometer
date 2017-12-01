@@ -1,4 +1,4 @@
-﻿namespace AirPollutionWebApi.Models
+﻿namespace PollutometerWebApi.Models
 {
     public class Reading
     {

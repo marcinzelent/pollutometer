@@ -1,7 +1,7 @@
 ﻿using System.Net.Http.Formatting;
 using System.Web.Http;
 
-namespace AirPollutionWebApi
+namespace PollutometerWebApi
 {
     public static class WebApiConfig
     {

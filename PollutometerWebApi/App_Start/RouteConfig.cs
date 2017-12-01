@@ -1,7 +1,7 @@
 ﻿using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace AirPollutionWebApi
+namespace PollutometerWebApi
 {
     public class RouteConfig
     {
