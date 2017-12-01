@@ -90,6 +90,7 @@
     <Compile Include="Models\Reading.cs" />
     <Compile Include="SqlOperator.cs" />
     <Compile Include="EmailSender.cs" />
+    <Compile Include="EmailService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Web.config" />

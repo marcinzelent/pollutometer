@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Tasks;
 using System.Web.Http;
 using PollutometerWebApi.Models;
 using PollutometerWebApi.Singletons;
@@ -7,13 +8,12 @@ namespace PollutometerWebApi.Controllers
 {
     public class ReadingsController : ApiController
     {
-		public ReadingsController() 
-        {
-            EmailSender.SendEmail();
-        }
+		public ReadingsController() {}
 
 		public IHttpActionResult GetAllReadings()
 		{
+            Task.Run(() => EmailService.Start());
+            
             var command = "SELECT * FROM Readings";
             var readings = SqlOperator.GetReadings(command);
 
