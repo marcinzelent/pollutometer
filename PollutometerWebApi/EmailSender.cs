@@ -29,8 +29,8 @@ namespace PollutometerWebApi
                     "\n" +
                     "<img src=\"https://i.imgflip.com/20b4q2.jpg\"/>\n" +
                     "\n" +
-                    $"The warning was triggered by {gasName}. " +
-                    $"Air quality index: {max}";
+                    $"<p>The warning was triggered by {gasName}.</p>\n" +
+                    $"<p>Air quality index: {max}</p>";
                 client.Send(mail);
             }
             catch(Exception ex)

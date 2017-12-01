@@ -32,7 +32,7 @@ namespace PollutometerWebApi
 				{
 					if (result.Value > max)
 					{
-						max = result.Value;
+						max = result.Value; 
 						gasName = result.Key;
 					}
 				}
