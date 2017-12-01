@@ -7,7 +7,10 @@ namespace PollutometerWebApi.Controllers
 {
     public class ReadingsController : ApiController
     {
-		public ReadingsController() { }
+		public ReadingsController() 
+        {
+            EmailSender.SendEmail();
+        }
 
 		public IHttpActionResult GetAllReadings()
 		{

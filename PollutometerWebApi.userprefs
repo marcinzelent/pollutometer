@@ -1,8 +1,8 @@
 ﻿<Properties StartupConfiguration="{22C32F4C-0DEB-40EA-9D56-48942CBB2A07}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PollutometerWebApi/Global.asax.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PollutometerWebApi/EmailSender.cs">
     <Files>
       <File FileName="PollutometerWebApi/Controllers/HomeController.cs" Line="2" Column="22" />
-      <File FileName="PollutometerWebApi/Controllers/ReadingsController.cs" Line="1" Column="1" />
+      <File FileName="PollutometerWebApi/Controllers/ReadingsController.cs" Line="10" Column="31" />
       <File FileName="PollutometerWebApi/SqlOperator.cs" Line="1" Column="1" />
       <File FileName="PollutometerWebApi/Views/Home/Index.cshtml" Line="1" Column="1" />
       <File FileName="PollutometerWebApi/Views/Shared/_Layout.cshtml" Line="1" Column="1" />
@@ -12,6 +12,7 @@
       <File FileName="PollutometerWebApi/Web.config" Line="3" Column="33" />
       <File FileName="PollutometerWebApi/Global.asax" Line="1" Column="39" />
       <File FileName="PollutometerWebApi/Global.asax.cs" Line="1" Column="1" />
+      <File FileName="PollutometerWebApi/EmailSender.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
