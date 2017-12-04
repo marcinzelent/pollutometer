@@ -1,16 +1,19 @@
-﻿<Properties StartupConfiguration="{22C32F4C-0DEB-40EA-9D56-48942CBB2A07}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PollutometerWebApi/EmailSender.cs">
+﻿<Properties StartupConfiguration="{D19CA1E0-796F-480A-996D-3DFABFC6203F}|Unit Tests">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PollutometerWebApi/Models/Aqi.cs">
     <Files>
       <File FileName="PollutometerWebApi/AqiCalculator.cs" Line="7" Column="16" />
-      <File FileName="PollutometerWebApi.Tests/Test.cs" Line="15" Column="1" />
+      <File FileName="PollutometerWebApi.Tests/Test.cs" Line="16" Column="1" />
       <File FileName="PollutometerWebApi/Controllers/ReadingsController.cs" Line="71" Column="48" />
-      <File FileName="PollutometerWebApi/EmailSender.cs" Line="11" Column="103" />
+      <File FileName="PollutometerWebApi/EmailSender.cs" Line="25" Column="23" />
+      <File FileName="PollutometerWebApi/Models/Aqi.cs" Line="10" Column="14" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
   <MonoDevelop.Ide.ItemProperties.PollutometerWebApi PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore />
+    <BreakpointStore>
+      <Breakpoint file="/home/marcin/MonoDevelop Projects/Pollutometer-WebAPI/PollutometerWebApi/EmailSender.cs" relfile="PollutometerWebApi/EmailSender.cs" line="31" column="13" />
+    </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.ItemProperties.PollutometerWebApi.Tests PreferredExecutionTarget="MonoDevelop.Default" />
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
