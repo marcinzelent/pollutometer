@@ -1,10 +1,10 @@
 ﻿<Properties StartupConfiguration="{22C32F4C-0DEB-40EA-9D56-48942CBB2A07}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PollutometerWebApi/Controllers/ReadingsController.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PollutometerWebApi/EmailSender.cs">
     <Files>
       <File FileName="PollutometerWebApi/AqiCalculator.cs" Line="7" Column="16" />
       <File FileName="PollutometerWebApi.Tests/Test.cs" Line="15" Column="1" />
       <File FileName="PollutometerWebApi/Controllers/ReadingsController.cs" Line="71" Column="48" />
-      <File FileName="PollutometerWebApi/EmailSender.cs" Line="24" Column="5" />
+      <File FileName="PollutometerWebApi/EmailSender.cs" Line="11" Column="103" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
