@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Net.Mail;
+using PollutometerWebApi.Models;
 
 namespace PollutometerWebApi
 {
-    public class EmailSender
+    public static class EmailSender
     {
-        public EmailSender() {}
-
-        public static void SendEmail(string gasName, double max)
+        public static void SendEmail(Aqi aqi)
         {
-            try
-            {
                 MailMessage mail = new MailMessage("***REMOVED***", "***REMOVED***@edu.easj.dk");
                 SmtpClient client = new SmtpClient()
                 {
@@ -29,14 +25,9 @@ namespace PollutometerWebApi
                     "\n" +
                     "<img src=\"https://i.imgflip.com/20b4q2.jpg\"/>\n" +
                     "\n" +
-                    $"<p>The warning was triggered by {gasName}.</p>\n" +
-                    $"<p>Air quality index: {max}</p>";
+                $"<p>The warning was triggered by {aqi.GasName}.</p>\n" +
+                $"<p>Air quality index: {aqi.Value}</p>";
                 client.Send(mail);
-            }
-            catch(Exception ex)
-            {
-                Console.Write(ex.Message);
-            }
         }
     }
 }

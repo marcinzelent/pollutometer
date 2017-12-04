@@ -8,7 +8,7 @@ namespace PollutometerWebApi.Tests
         [Test()]
         public void TestCase()
         {
-            EmailService.Start();
+            var result = AqiCalculator.CalculateAqi(new Models.Reading() {Co = 30.4, No = 1.0, So = 0.4});
         }
     }
 }

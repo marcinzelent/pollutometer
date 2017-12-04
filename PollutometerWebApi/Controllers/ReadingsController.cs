@@ -12,8 +12,6 @@ namespace PollutometerWebApi.Controllers
 
 		public IHttpActionResult GetAllReadings()
 		{
-            Task.Run(() => EmailService.Start());
-            
             var command = "SELECT * FROM Readings";
             var readings = SqlOperator.GetReadings(command);
 
@@ -68,6 +66,9 @@ namespace PollutometerWebApi.Controllers
 			if (reading != null)
 			{
                 SqlOperator.PostReading(reading);
+                var aqi = AqiCalculator.CalculateAqi(reading);
+                if (aqi.Value > 151)
+                    EmailSender.SendEmail(aqi);
 				return Ok();
 			}
 			else return BadRequest();
