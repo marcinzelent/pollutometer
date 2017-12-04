@@ -1,5 +1,5 @@
-﻿<Properties StartupConfiguration="{D19CA1E0-796F-480A-996D-3DFABFC6203F}|Unit Tests">
-  <MonoDevelop.Ide.Workbench ActiveDocument="PollutometerWebApi/AqiCalculator.cs">
+﻿<Properties StartupConfiguration="{22C32F4C-0DEB-40EA-9D56-48942CBB2A07}|">
+  <MonoDevelop.Ide.Workbench ActiveDocument="PollutometerWebApi/Controllers/ReadingsController.cs">
     <Files>
       <File FileName="PollutometerWebApi/AqiCalculator.cs" Line="7" Column="16" />
       <File FileName="PollutometerWebApi.Tests/Test.cs" Line="15" Column="1" />

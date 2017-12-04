@@ -67,7 +67,7 @@ namespace PollutometerWebApi.Controllers
 			{
                 SqlOperator.PostReading(reading);
                 var aqi = AqiCalculator.CalculateAqi(reading);
-                if (aqi.Value > 151)
+                if (aqi.Value >= 151)
                     EmailSender.SendEmail(aqi);
 				return Ok();
 			}
