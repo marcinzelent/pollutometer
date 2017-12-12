@@ -1,8 +1,6 @@
 ﻿using System;
-using System.Threading.Tasks;
 using System.Web.Http;
 using PollutometerWebApi.Models;
-using PollutometerWebApi.Singletons;
 
 namespace PollutometerWebApi.Controllers
 {
@@ -22,9 +20,9 @@ namespace PollutometerWebApi.Controllers
 		public IHttpActionResult GetReading(int id)
 		{
             var command = $"SELECT * FROM Readings WHERE Id={id}";
-            var reading = SqlOperator.GetReadings(command)[0];
+            var readings = SqlOperator.GetReadings(command);
 
-			if (reading != null) return Ok(reading);
+			if (readings.Count == 1) return Ok(readings[0]);
 			else return NotFound();
 		}
 
@@ -69,7 +67,7 @@ namespace PollutometerWebApi.Controllers
                 var aqi = AqiCalculator.CalculateAqi(reading);
                 if (aqi.Value >= 151)
                     EmailSender.SendEmail(aqi);
-				return Ok();
+				return Ok(reading);
 			}
 			else return BadRequest();
 		}
@@ -77,16 +75,11 @@ namespace PollutometerWebApi.Controllers
 		public IHttpActionResult DeleteReading(int id)
 		{
             var command = $"SELECT * FROM Readings WHERE Id={id}";
-
-            Reading reading = SqlOperator.GetReadings(command)[0];
-			if (reading == null)
-			{
-				return NotFound();
-			}
-
+            var readings = SqlOperator.GetReadings(command);
+			if (readings.Count == 0) return NotFound();
 			SqlOperator.DeleteReading(id);
-
-			return Ok(reading);
+            
+			return Ok(readings[0]);
 		}
     }
 }

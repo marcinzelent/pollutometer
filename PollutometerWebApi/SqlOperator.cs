@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Data.SqlClient;
 using PollutometerWebApi.Models;
 
-namespace PollutometerWebApi.Singletons
+namespace PollutometerWebApi
 {
 	public static class SqlOperator
 	{
