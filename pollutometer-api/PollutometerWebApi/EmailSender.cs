@@ -8,7 +8,7 @@ namespace PollutometerWebApi
     {
         public static void SendEmail(Aqi aqi)
         {
-            MailMessage mail = new MailMessage("***REMOVED***", "alek2026@edu.easj.dk");
+            MailMessage mail = new MailMessage("***REMOVED***", "<PUT E-MAIL HERE>");
             SmtpClient client = new SmtpClient()
             {
                 Host = "mail.cock.li",
