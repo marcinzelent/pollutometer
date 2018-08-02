@@ -11,8 +11,7 @@ Sjælland.
 ## Features
 
 - current air pollution display, i.e. concentration of SO2, NO2 and CO
-- calculation of current [air quality index]
-(https://en.wikipedia.org/wiki/Air_quality_index)
+- calculation of current [air quality index](https://en.wikipedia.org/wiki/Air_quality_index)
 - tables showing all gathered data and data from last week
 - graphs visualizing the changes in gas concentration
 - train schedule for Roskilde St. with AQI measurement corresponding to train
